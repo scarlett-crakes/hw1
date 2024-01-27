@@ -128,7 +128,7 @@ void ULListStr::pop_back()
     }
     else if(tail_ != nullptr)
     {
-      tail_->next = nullptr; 
+      tail_->next = nullptr;  
     }
     else
     {
