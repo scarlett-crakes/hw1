@@ -20,16 +20,25 @@ void split(Node*& in, Node*& odds, Node*& evens)
 // WRITE YOUR CODE HERE
   if(in == nullptr)
   {
+    evens = nullptr;
+    odds = nullptr;
+    //in = nullptr; //issue with Split.InputSetToNull only
     return;
   }
-
-  else if(in.value % 2 == 0)
+  else if(in->value % 2 == 0)
   {
-    return split(in.next, odds, in);
+    evens = in;
+    Node* temp = in;
+    in = in->next;
+    return split(in, odds, temp->next);
   }
   else
   {
-    return split(in.next, in, evens);
+    odds = in;
+    Node* temp = in;
+    in = in->next;
+   
+    return split(in, temp->next, evens);
   }
 }
 
